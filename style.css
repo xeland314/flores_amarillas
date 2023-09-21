@@ -5,7 +5,7 @@
 }
 
 :root {
-    --color-bg: linear-gradient(to top, #00d4ff, #000);
+    --color-bg: linear-gradient(to top, #1594cf, #0f0f0f);
     --line-color: linear-gradient(to left top, #82ff86 20%, #144425, #104e1c);
     --flower-center: radial-gradient(circle, #000, #ff5e00);
     --leaf-color: radial-gradient(circle, #82ff86, #104e1c);
@@ -13,23 +13,24 @@
 }
 
 body {
-    background-image: var(--color-bg);
-    min-height: 100vh;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     overflow: hidden;
 }
 
-
-@media screen and (max-width: 768px) {
-    body {
-        align-items: center;
-    }
+.landscape {
+    background-image: var(--color-bg);
+    position: relative; /* Hacer que .landscape sea el contenedor relativo */
+    width: 100%;
+    height: 100%;
 }
 
 .sunflower {
-    position: absolute;
+    position: absolute; /* Posicionar las flores en relación con .landscape */
     margin: 0 auto;
 }
 
@@ -69,11 +70,9 @@ body {
     transform: translateX(-50%);
     width: 7vmin;
     height: 17vmin;
-    height: 20vmin;
     background: var(--petal-color);
     clip-path: ellipse(50% 50% at 50% 50%);
     transform-origin: center bottom;
-    animation: open-flower 2s 1s backwards;
 }
 
 .flower_petal-1 {
@@ -358,26 +357,5 @@ body {
         transform: translateY(-60vmin);
         opacity: 0;
         filter: blur(1vmin);
-    }
-}
-
-
-@media (max-width: 758px) {
-    .carta {
-        max-width: 100%;
-        /* Cambiar el ancho máximo para que ocupe todo el ancho */
-        max-height: none;
-        /* Eliminar la altura máxima para que sea variable */
-        position: relative;
-        /* Cambiar la posición a relativa para que siga el flujo del documento */
-        margin: 0 20px 450px 20px;
-        /* Centrar horizontalmente y agregar margen inferior */
-    }
-
-    h1 {
-        color: black;
-        font-size: 15px;
-        font-weight: 400;
-        text-align: justify;
     }
 }

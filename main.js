@@ -5,14 +5,15 @@ function createAndPositionFlower() {
     const newFlower = originalFlower.cloneNode(true);
 
     // Modificar el tamaño de la nueva flor
-    const randomSize = Math.random() * 1.15 + 0.5; // Tamaños aleatorios de 0 a 1.5
+    const randomSize = Math.random() * 1.15 + 0.5;
     newFlower.style.transform = `scale(${randomSize})`;
 
-    // Agregar la nueva flor al documento
-    document.body.appendChild(newFlower);
+    // Agregar la nueva flor al elemento .landscape
+    const landscape = document.querySelector(".landscape");
+    landscape.appendChild(newFlower);
 
-    const xPosition = Math.random() * window.innerWidth;
-    const yPosition = window.innerHeight - newFlower.clientHeight;
+    const xPosition = Math.random() * landscape.clientWidth;
+    const yPosition = landscape.clientHeight - newFlower.clientHeight;
 
     newFlower.style.left = `${xPosition}px`;
     newFlower.style.top = `${yPosition}px`;
