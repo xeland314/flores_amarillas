@@ -19,4 +19,9 @@ function createAndPositionFlower() {
 }
 
 // Generar flores cada cierto tiempo (por ejemplo, cada 5 segundos)
-setInterval(createAndPositionFlower, 5000);
+const intervalId = setInterval(createAndPositionFlower, 5000);
+
+// Detener la generación de flores después de 4 minutos
+setTimeout(() => {
+    clearInterval(intervalId);
+}, 4 * 60 * 1000); // 4 minutos en milisegundos
