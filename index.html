@@ -18,11 +18,13 @@
         <div class="heart" id="myHeart"></div>
     </div>    
     <script>
+        const { song } = getUrlParams();
+        let mySong = getSong(song);
         // Agregar un evento onclick al botón
         document.getElementById("myHeart").onclick = function () {
             // Redirigir al usuario a la página deseada
-            window.location.href = "floresAmarillas.html";
-        };
+            window.location.href = `floresAmarillas.html?song=${mySong}`;
+        };        
     </script>
 </body>
 

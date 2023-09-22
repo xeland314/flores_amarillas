@@ -1,23 +1,25 @@
 // Función para obtener parámetros de la URL
-function getUrlParams() {
+const getUrlParams = () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const message = urlParams.get('message');
-    return { message };
+    return {
+        message: urlParams.get('message'),
+        song: urlParams.get('song')
+    };
 }
+
+const getSong = (song) => {
+    const songs = {
+        'song1': 'sherk.mp3'
+    };
+    return songs[song] || 'flores-amarillas.mp3';
+};
 
 // Función para personalizar el mensaje y el nombre
-function personalizeMessage() {
-    const { message } = getUrlParams();
-    const messageElement = document.getElementById("message");
+const personalizeMessage = () => {
+    const { message, song } = getUrlParams();
 
-    if (message) {
-        messageElement.textContent = message;
-    } else {
-        messageElement.textContent = "Por si no te dieron tus flores amarillas..."
-    }
+    document.getElementById("message").textContent = message || "Por si no te dieron tus flores amarillas...";
+    document.getElementById("song").textContent = getSong(song);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Llamar a la función para personalizar el mensaje y el nombre
-    personalizeMessage();
-});
+document.addEventListener("DOMContentLoaded", personalizeMessage);
